@@ -14,7 +14,7 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        source_file: 'test2.md'
+        source_file: 'test3.md'
         destination_repo: 'dmnemec/release-test'
         user_email: 'devin.nemec@gmail.com'
         user_name: 'dmnemec'
