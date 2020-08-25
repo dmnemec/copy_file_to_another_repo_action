@@ -3,6 +3,12 @@
 set -e
 set -x
 
+if [ -z "$INPUT_SOURCE_FILE" ]
+then
+  echo "Source file must be defined"
+  return -1
+fi
+
 if [ -z "$INPUT_DESTINATION_BRANCH" ]
 then
   INPUT_DESTINATION_BRANCH=master
@@ -22,7 +28,7 @@ ls -la "$CLONE_DIR"
 
 echo "Copying contents to git repo"
 mkdir -p $CLONE_DIR/$INPUT_DESTINATION_FOLDER
-cp "$INPUT_SOURCE_FILE" "$CLONE_DIR/$INPUT_DESTINATION_FOLDER"
+cp -r "$INPUT_SOURCE_FILE" "$CLONE_DIR/$INPUT_DESTINATION_FOLDER"
 cd "$CLONE_DIR"
 ls -la
 
