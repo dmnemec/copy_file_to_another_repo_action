@@ -3,9 +3,9 @@
 set -e
 set -x
 
-if [ -z "$DESTINATION_BRANCH" ]
+if [ -z "$INPUT_DESTINATION_BRANCH" ]
 then
-  DESTINATION_BRANCH=master
+  INPUT_DESTINATION_BRANCH=master
 fi
 
 env | grep -v API_TOKEN_GITHUB | sort
