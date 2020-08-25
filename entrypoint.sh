@@ -21,6 +21,7 @@ echo "Checking cloned repo"
 ls -la "$CLONE_DIR"
 
 echo "Copying contents to git repo"
+mkdir -p $CLONE_DIR/$INPUT_DESTINATION_FOLDER
 cp "$SOURCE_FILE" "$CLONE_DIR/$INPUT_DESTINATION_FOLDER"
 cd "$CLONE_DIR"
 ls -la
