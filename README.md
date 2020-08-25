@@ -2,7 +2,7 @@
 This GitHub Action copies a file from the current repository to a location in another repository
 
 # Example Workflow
-    name: Lint and Test Charts
+    name: Push File
 
     on: pull_request
 
