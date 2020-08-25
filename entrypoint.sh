@@ -1,11 +1,14 @@
-#!/bin/sh -l
+#!/bin/sh
+
+set -e
+set -x
 
 if [ -z "$DESTINATION_BRANCH" ]
 then
   DESTINATION_BRANCH=master
 fi
 
-sort | env | grep -v API_TOKEN_GITHUB
+env | grep -v API_TOKEN_GITHUB | sort
 
 CLONE_DIR=$(mktemp -d)
 
