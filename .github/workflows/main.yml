@@ -16,6 +16,6 @@ jobs:
       with:
         source_file: 'test.md'
         destination_repo: 'dmnemec/release-test'
-        destination_folder: ''
+        destination_folder: 'test-dir'
         user_email: 'devin.nemec@gmail.com'
         user_name: 'dmnemec'
