@@ -1,19 +1,19 @@
 name: 'Push a file to another repository'
 description: 'Used for pushing a copy of a file to another repository'
 inputs:
-  source-file:
+  source_file:
     description: 'Source file from the origin directory'
     required: true
-  destination-repo:
+  destination_repo:
     description: 'Destination repository'
     required: true
-  destination-folder:
+  destination_folder:
     description: 'Directory to push the file to'
     required: true
-  user-email:
+  user_email:
     description: 'Email for the git commit'
     required: true
-  destination-branch:
+  destination_branch:
     description: 'branch to push file to, defaults to master'
     required: false
 runs:
