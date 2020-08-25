@@ -5,16 +5,19 @@ then
   DESTINATION_BRANCH=master
 fi
 
+env | grep -v API_TOKEN_GITHUB
+
 CLONE_DIR=$(mktemp -d)
 
 echo "Cloning destination git repository"
+ls -la
 git config --global user.email "$USER_EMAIL"
 git config --global user.name "$GITHUB_USERNAME"
 git clone --single-branch --branch $DESTINATION_BRANCH "https://$API_TOKEN_GITHUB@github.com/$GITHUB_REPO.git" "$CLONE_DIR"
+echo "Checking cloned repo"
 ls -la "$CLONE_DIR"
 
-echo "Copying contents to to git repo"
-ls -la
+echo "Copying contents to git repo"
 cp "$SOURCE_FILE" "$CLONE_DIR/$DESTINATION_FOLDER"
 cd "$CLONE_DIR"
 ls -la
