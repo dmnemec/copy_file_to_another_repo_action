@@ -7,7 +7,7 @@ This GitHub Action copies a file from the current repository to a location in an
     on: pull_request
 
     jobs:
-    copy-file:
+      copy-file:
         runs-on: ubuntu-latest
         steps:
         - name: Checkout

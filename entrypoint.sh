@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -l
 
 if [ -z "$DESTINATION_BRANCH" ]
 then

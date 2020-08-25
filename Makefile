@@ -9,7 +9,7 @@ run: build
 	echo "===RUNNING==="
 	docker run --rm \
 	-e "GITHUB_USERNAME=dmnemec" \
-	-e "USER_EMAIL=devin.nemec@gmail.com \
+	-e "USER_EMAIL=devin.nemec@gmail.com" \
 	-e API_TOKEN_GITHUB \
 	-e "SOURCE_FILE=test.md" \
 	-e "DESTINATION_FOLDER=test" \
