@@ -18,3 +18,4 @@ jobs:
         destination_repo: 'dmnemec/release-test'
         destination_folder: ''
         user_email: 'devin.nemec@gmail.com'
+        user_name: 'dmnemec'

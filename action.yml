@@ -13,6 +13,9 @@ inputs:
   user_email:
     description: 'Email for the git commit'
     required: true
+  user_name:
+    description: 'GitHub username for the commit'
+    required: true
   destination_branch:
     description: 'branch to push file to, defaults to master'
     required: false
