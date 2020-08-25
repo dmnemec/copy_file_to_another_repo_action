@@ -14,6 +14,7 @@ git clone --single-branch --branch $DESTINATION_BRANCH "https://$API_TOKEN_GITHU
 ls -la "$CLONE_DIR"
 
 echo "Copying contents to to git repo"
+ls -la
 cp "$SOURCE_FILE" "$CLONE_DIR/$DESTINATION_FOLDER"
 cd "$CLONE_DIR"
 ls -la
