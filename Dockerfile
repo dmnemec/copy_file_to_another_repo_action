@@ -1,9 +1,5 @@
-FROM alpine
+FROM scratch
 
-RUN apk update && \
-    apk upgrade && \
-    apk add git
+ADD main /bin/action
 
-ADD entrypoint.sh /entrypoint.sh
-
-ENTRYPOINT [ "/entrypoint.sh" ]
+ENTRYPOINT [ "/bin/action" ]
