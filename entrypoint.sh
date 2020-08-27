@@ -28,7 +28,7 @@ cd "$CLONE_DIR"
 
 echo "Adding git commit"
 git add .
-if grep -q 'Your branch is ahead of' | git status
+if [ -z $( grep -q 'Your branch is ahead of' | git status ) ]
 then
   git commit --message "Update from https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
   echo "Pushing git commit"
