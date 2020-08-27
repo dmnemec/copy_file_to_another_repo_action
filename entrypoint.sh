@@ -28,8 +28,11 @@ cd "$CLONE_DIR"
 
 echo "Adding git commit"
 git add .
-git status
-git commit --message "Update from https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
-
-echo "Pushing git commit"
-git push origin $INPUT_DESTINATION_BRANCH
+if grep -q 'Your branch is ahead of' | git status
+then
+  git commit --message "Update from https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
+  echo "Pushing git commit"
+  git push origin $INPUT_DESTINATION_BRANCH
+else
+  echo "No changes detected"
+fi
