@@ -9,10 +9,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Mark test file
-      run: |-
-        echo $GITHUB_SHA > test01.md
-
     - name: Pushes test file
       uses: dmnemec/copy_file_to_another_repo_action@master
       env:
