@@ -31,6 +31,7 @@ This GitHub Action copies a file from the current repository to a location in an
 * user_email: The GitHub user email associated with the API token secret.
 * user_name: The GitHub username associated with the API token secret.
 * destination_branch: [optional] The branch of the source repo to update, if not master.
+* destination_branch_create: [optional] A branch to be created with this commit, defaults to commiting in `destination_branch`
 
 # Behavior Notes
 The action will create any destination paths if they don't exist. It will also overwrite existing files if they already exist in the locations being copied to. It will not delete the entire destination repository.

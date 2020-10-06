@@ -19,6 +19,9 @@ inputs:
   destination_branch:
     description: 'branch to push file to, defaults to master'
     required: false
+  destination_branch_create:
+    description: 'Destination branch to create for this commit'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -28,6 +31,7 @@ runs:
     - ${{ inputs.destination-folder }}
     - ${{ inputs.user-email }}
     - ${{ inputs.destination-branch }}
+    - ${{ inputs.destination-branch-create }}
 branding:
   icon: 'git-commit'
   color: 'green'
