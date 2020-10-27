@@ -21,7 +21,7 @@ This GitHub Action copies a file from the current repository to a location in an
             source_file: 'test2.md'
             destination_repo: 'dmnemec/release-test'
             destination_folder: 'test-dir'
-            user_email: 'devin.nemec@gmail.com'
+            user_email: 'example@email.com'
             user_name: 'dmnemec'
 
 # Variables
