@@ -32,6 +32,7 @@ runs:
     - ${{ inputs.user-email }}
     - ${{ inputs.destination-branch }}
     - ${{ inputs.destination-branch-create }}
+    - ${{ inputs.commit-message }}
 branding:
   icon: 'git-commit'
   color: 'green'
