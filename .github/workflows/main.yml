@@ -12,6 +12,7 @@ jobs:
     - name: Mark test file
       run: |-
         echo $GITHUB_SHA > test02.md
+        echo $GITHUB_SHA > test03.md
 
     - name: Ignore unchanged file
       uses: dmnemec/copy_file_to_another_repo_action@master
@@ -32,3 +33,14 @@ jobs:
         destination_repo: 'dmnemec/release-test'
         user_email: 'devin.nemec@gmail.com'
         user_name: 'dmnemec'
+
+    - name: Check custom commit message
+      uses: dmnemec/copy_file_to_another_repo_action@master
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+        source_file: 'test03.md'
+        destination_repo: 'dmnemec/release-test'
+        user_email: 'devin.nemec@gmail.com'
+        user_name: 'dmnemec'
+        commit_message: 'A custom message.'
