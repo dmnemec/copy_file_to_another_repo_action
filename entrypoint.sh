@@ -33,11 +33,16 @@ mkdir -p $CLONE_DIR/$INPUT_DESTINATION_FOLDER
 cp -R $INPUT_SOURCE_FILE "$CLONE_DIR/$INPUT_DESTINATION_FOLDER"
 cd "$CLONE_DIR"
 
+if [ -z "$INPUT_COMMIT_MESSAGE"]
+then
+  INPUT_COMMIT_MESSAGE="Update from https://github.com/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}"
+fi
+
 echo "Adding git commit"
 git add .
 if git status | grep -q "Changes to be committed"
 then
-  git commit --message "Update from https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
+  git commit --message $INPUT_COMMIT_MESSAGE
   echo "Pushing git commit"
   git push -u origin HEAD:$OUTPUT_BRANCH
 else
