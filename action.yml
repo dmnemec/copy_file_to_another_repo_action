@@ -22,6 +22,9 @@ inputs:
   destination_branch_create:
     description: 'Destination branch to create for this commit'
     required: false
+  commit_message:
+    description: 'A custom message for the commmit'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
