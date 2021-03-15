@@ -14,7 +14,7 @@ This GitHub Action copies a file from the current repository to a location in an
           uses: actions/checkout@v2
 
         - name: Pushes test file
-          uses: dmnemec/copy_file_to_another_repo_action@v1.1.0
+          uses: dmnemec/copy_file_to_another_repo_action@main
           env:
             API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
           with:
