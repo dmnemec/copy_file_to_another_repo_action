@@ -15,7 +15,7 @@ jobs:
         echo $GITHUB_SHA > test03.md
 
     - name: Ignore unchanged file
-      uses: dmnemec/copy_file_to_another_repo_action@master
+      uses: dmnemec/copy_file_to_another_repo_action@main
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
@@ -25,7 +25,7 @@ jobs:
         user_name: 'dmnemec'
 
     - name: Push changed file
-      uses: dmnemec/copy_file_to_another_repo_action@master
+      uses: dmnemec/copy_file_to_another_repo_action@main
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
@@ -35,7 +35,7 @@ jobs:
         user_name: 'dmnemec'
 
     - name: Check custom commit message
-      uses: dmnemec/copy_file_to_another_repo_action@master
+      uses: dmnemec/copy_file_to_another_repo_action@main
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
