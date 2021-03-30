@@ -35,7 +35,7 @@ jobs:
         user_name: 'dmnemec'
 
     - name: Check custom commit message
-      uses: dmnemec/copy_file_to_another_repo_action@master
+      uses: dmnemec/copy_file_to_another_repo_action@main
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
