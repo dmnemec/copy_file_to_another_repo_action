@@ -25,6 +25,10 @@ inputs:
   commit_message:
     description: 'A custom message for the commmit'
     required: false
+  github_server:
+    description: 'Github server host, default github.com'
+    required: true
+    default: github.com
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -36,6 +40,7 @@ runs:
     - ${{ inputs.destination-branch }}
     - ${{ inputs.destination-branch-create }}
     - ${{ inputs.commit-message }}
+    - ${{ inputs.github_server }}
 branding:
   icon: 'git-commit'
   color: 'green'
