@@ -40,7 +40,7 @@ runs:
     - ${{ inputs.destination-branch }}
     - ${{ inputs.destination-branch-create }}
     - ${{ inputs.commit-message }}
-    - ${{ inputs.github_server }}
+    - ${{ inputs.github-server }}
 branding:
   icon: 'git-commit'
   color: 'green'
