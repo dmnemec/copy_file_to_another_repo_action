@@ -23,7 +23,7 @@ inputs:
     description: 'Destination branch to create for this commit'
     required: false
   commit_message:
-    description: 'A custom message for the commmit'
+    description: 'A custom message for the commit'
     required: false
 runs:
   using: 'docker'
