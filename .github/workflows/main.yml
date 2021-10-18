@@ -16,7 +16,7 @@ jobs:
         echo $GITHUB_SHA > test04.md
 
     - name: Ignore unchanged file
-      uses: dmnemec/copy_file_to_another_repo_action@main
+      uses: dmnemec/copy_file_to_another_repo_action@$GITHUB_SHA
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
@@ -26,7 +26,7 @@ jobs:
         user_name: 'dmnemec'
 
     - name: Push changed file
-      uses: dmnemec/copy_file_to_another_repo_action@main
+      uses: dmnemec/copy_file_to_another_repo_action@$GITHUB_SHA
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
@@ -36,7 +36,7 @@ jobs:
         user_name: 'dmnemec'
 
     - name: Check custom commit message
-      uses: dmnemec/copy_file_to_another_repo_action@main
+      uses: dmnemec/copy_file_to_another_repo_action@$GITHUB_SHA
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
@@ -47,7 +47,7 @@ jobs:
         commit_message: 'A custom message.'
 
     - name: Check rsync runs
-      uses: dmnemec/copy_file_to_another_repo_action@main
+      uses: dmnemec/copy_file_to_another_repo_action@$GITHUB_SHA
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
