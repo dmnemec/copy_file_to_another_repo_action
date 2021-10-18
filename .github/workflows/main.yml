@@ -44,3 +44,14 @@ jobs:
         user_email: 'devin.nemec@gmail.com'
         user_name: 'dmnemec'
         commit_message: 'A custom message.'
+
+    - name: Check rsync runs
+      uses: dmnemec/copy_file_to_another_repo_action@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+        source_file: 'test04.md'
+        destination_repo: 'dmnemec/release-test'
+        user_email: 'devin.nemec@gmail.com'
+        user_name: 'dmnemec'
+        use_rsync: 'true'
