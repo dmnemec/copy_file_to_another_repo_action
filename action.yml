@@ -25,6 +25,9 @@ inputs:
   commit_message:
     description: 'A custom message for the commit'
     required: false
+  use_rsync:
+    description: 'Copy files/directories using rsync instead of cp. Experimental feature, please know your use case'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
