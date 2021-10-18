@@ -13,6 +13,7 @@ jobs:
       run: |-
         echo $GITHUB_SHA > test02.md
         echo $GITHUB_SHA > test03.md
+        echo $GITHUB_SHA > test04.md
 
     - name: Ignore unchanged file
       uses: dmnemec/copy_file_to_another_repo_action@main
