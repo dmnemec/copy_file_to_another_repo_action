@@ -2,6 +2,9 @@ name: Push File
 
 on: push
 
+env:
+    sha: $GITHUB_SHA
+
 jobs:
   copy-file:
     runs-on: ubuntu-latest
@@ -13,9 +16,10 @@ jobs:
       run: |-
         echo $GITHUB_SHA > test02.md
         echo $GITHUB_SHA > test03.md
+        echo $GITHUB_SHA > test04.md
 
     - name: Ignore unchanged file
-      uses: dmnemec/copy_file_to_another_repo_action@main
+      uses: ./
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
@@ -25,7 +29,7 @@ jobs:
         user_name: 'dmnemec'
 
     - name: Push changed file
-      uses: dmnemec/copy_file_to_another_repo_action@main
+      uses: ./
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
@@ -35,7 +39,7 @@ jobs:
         user_name: 'dmnemec'
 
     - name: Check custom commit message
-      uses: dmnemec/copy_file_to_another_repo_action@main
+      uses: ./
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
@@ -44,3 +48,25 @@ jobs:
         user_email: 'devin.nemec@gmail.com'
         user_name: 'dmnemec'
         commit_message: 'A custom message.'
+
+    - name: Check rsync runs
+      uses: ./
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+        source_file: 'test04.md'
+        destination_repo: 'dmnemec/release-test'
+        user_email: 'devin.nemec@gmail.com'
+        user_name: 'dmnemec'
+        use_rsync: 'true'
+
+    - name: Push renamed file
+      uses: ./
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+        source_file: 'test02.md'
+        destination_repo: 'dmnemec/release-test'
+        user_email: 'devin.nemec@gmail.com'
+        user_name: 'dmnemec'
+        rename: 'test02_rename.md'

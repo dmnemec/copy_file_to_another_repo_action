@@ -17,13 +17,19 @@ inputs:
     description: 'GitHub username for the commit'
     required: true
   destination_branch:
-    description: 'branch to push file to, defaults to master'
+    description: 'branch to push file to, defaults to main'
     required: false
   destination_branch_create:
     description: 'Destination branch to create for this commit'
     required: false
   commit_message:
-    description: 'A custom message for the commmit'
+    description: 'A custom message for the commit'
+    required: false
+  rename:
+    description: 'Rename the destination file'
+    required: false
+  use_rsync:
+    description: 'Copy files/directories using rsync instead of cp. Experimental feature, please know your use case'
     required: false
   github_server:
     description: 'Github server host, default github.com'
@@ -41,6 +47,8 @@ runs:
     - ${{ inputs.destination-branch-create }}
     - ${{ inputs.commit-message }}
     - ${{ inputs.github-server }}
+    - ${{ inputs.rename }}
+    - ${{ inputs.use-rsync }}
 branding:
   icon: 'git-commit'
   color: 'green'
