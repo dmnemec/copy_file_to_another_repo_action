@@ -23,13 +23,21 @@ git config --global user.name "$INPUT_USER_NAME"
 git clone --single-branch --branch $INPUT_DESTINATION_BRANCH "https://x-access-token:$API_TOKEN_GITHUB@github.com/$INPUT_DESTINATION_REPO.git" "$CLONE_DIR"
 
 echo "Copying contents to git repo"
-mkdir -p "$CLONE_DIR"/"$INPUT_DESTINATION_FOLDER"
 
 if [ ! -z "$INPUT_RENAME" ]
 then
-  cp -R "$INPUT_SOURCE_FILE" "$CLONE_DIR/$INPUT_DESTINATION_FOLDER/$INPUT_RENAME"
+  DEST_COPY="$CLONE_DIR/$INPUT_DESTINATION_FOLDER/$INPUT_RENAME"
 else
-  cp -R "$INPUT_SOURCE_FILE" "$CLONE_DIR/$INPUT_DESTINATION_FOLDER"
+  DEST_COPY="$CLONE_DIR/$INPUT_DESTINATION_FOLDER"
+fi
+
+mkdir -p $CLONE_DIR/$INPUT_DESTINATION_FOLDER
+if [ -z "$INPUT_USE_RSYNC" ]
+then
+  cp -R "$INPUT_SOURCE_FILE" "$DEST_COPY"
+else
+  echo "rsync mode detected"
+  rsync -avrh "$INPUT_SOURCE_FILE" "$DEST_COPY"
 fi
 
 cd "$CLONE_DIR"

@@ -17,7 +17,7 @@ inputs:
     description: 'GitHub username for the commit'
     required: true
   destination_branch:
-    description: 'branch to push file to, defaults to master'
+    description: 'branch to push file to, defaults to main'
     required: false
   destination_branch_create:
     description: 'Destination branch to create for this commit'
@@ -27,6 +27,9 @@ inputs:
     required: false
   rename:
     description: 'Rename the destination file'
+    required: false
+  use_rsync:
+    description: 'Copy files/directories using rsync instead of cp. Experimental feature, please know your use case'
     required: false
 runs:
   using: 'docker'
