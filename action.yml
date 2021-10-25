@@ -43,6 +43,7 @@ runs:
     - ${{ inputs.destination-branch-create }}
     - ${{ inputs.commit-message }}
     - ${{ inputs.rename }}
+    - ${{ inputs.use-rsync }}
 branding:
   icon: 'git-commit'
   color: 'green'
