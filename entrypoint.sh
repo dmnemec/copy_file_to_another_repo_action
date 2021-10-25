@@ -6,7 +6,7 @@ set -x
 if [ -z "$INPUT_SOURCE_FILE" ]
 then
   echo "Source file must be defined"
-  return -1
+  return 1
 fi
 
 if [ -z "$INPUT_DESTINATION_BRANCH" ]
@@ -23,14 +23,23 @@ git config --global user.name "$INPUT_USER_NAME"
 git clone --single-branch --branch $INPUT_DESTINATION_BRANCH "https://x-access-token:$API_TOKEN_GITHUB@github.com/$INPUT_DESTINATION_REPO.git" "$CLONE_DIR"
 
 echo "Copying contents to git repo"
+
+if [ ! -z "$INPUT_RENAME" ]
+then
+  DEST_COPY="$CLONE_DIR/$INPUT_DESTINATION_FOLDER/$INPUT_RENAME"
+else
+  DEST_COPY="$CLONE_DIR/$INPUT_DESTINATION_FOLDER"
+fi
+
 mkdir -p $CLONE_DIR/$INPUT_DESTINATION_FOLDER
 if [ -z "$INPUT_USE_RSYNC" ]
 then
-  cp -R "$INPUT_SOURCE_FILE" "$CLONE_DIR/$INPUT_DESTINATION_FOLDER"
+  cp -R "$INPUT_SOURCE_FILE" "$DEST_COPY"
 else
   echo "rsync mode detected"
-  rsync -avrh "$INPUT_SOURCE_FILE" "$CLONE_DIR/$INPUT_DESTINATION_FOLDER"
+  rsync -avrh "$INPUT_SOURCE_FILE" "$DEST_COPY"
 fi
+
 cd "$CLONE_DIR"
 
 if [ ! -z "$INPUT_DESTINATION_BRANCH_CREATE" ]
@@ -50,7 +59,7 @@ if git status | grep -q "Changes to be committed"
 then
   git commit --message "$INPUT_COMMIT_MESSAGE"
   echo "Pushing git commit"
-  git push -u origin HEAD:$OUTPUT_BRANCH
+  git push -u origin HEAD:"$OUTPUT_BRANCH"
 else
   echo "No changes detected"
 fi

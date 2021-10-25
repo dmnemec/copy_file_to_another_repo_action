@@ -25,6 +25,9 @@ inputs:
   commit_message:
     description: 'A custom message for the commit'
     required: false
+  rename:
+    description: 'Rename the destination file'
+    required: false
   use_rsync:
     description: 'Copy files/directories using rsync instead of cp. Experimental feature, please know your use case'
     required: false
@@ -39,6 +42,7 @@ runs:
     - ${{ inputs.destination-branch }}
     - ${{ inputs.destination-branch-create }}
     - ${{ inputs.commit-message }}
+    - ${{ inputs.rename }}
 branding:
   icon: 'git-commit'
   color: 'green'
