@@ -32,7 +32,7 @@ inputs:
     description: 'Copy files/directories using rsync instead of cp. Experimental feature, please know your use case'
     required: false
   github_server:
-    description: 'Github server host, default github.com'
+    description: 'Git server host, default github.com'
     required: true
     default: github.com
 runs:
