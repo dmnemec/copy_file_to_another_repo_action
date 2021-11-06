@@ -33,7 +33,7 @@ inputs:
     required: false
   git_server:
     description: 'Git server host, default github.com'
-    required: true
+    required: false
     default: github.com
 runs:
   using: 'docker'
