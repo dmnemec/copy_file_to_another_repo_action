@@ -33,7 +33,7 @@ inputs:
     required: false
   git_server:
     description: 'Git server host, default github.com'
-    required: true
+    required: false
     default: github.com
 runs:
   using: 'docker'
@@ -46,7 +46,7 @@ runs:
     - ${{ inputs.destination-branch }}
     - ${{ inputs.destination-branch-create }}
     - ${{ inputs.commit-message }}
-    - ${{ inputs.github-server }}
+    - ${{ inputs.git-server }}
     - ${{ inputs.rename }}
     - ${{ inputs.use-rsync }}
 branding:
