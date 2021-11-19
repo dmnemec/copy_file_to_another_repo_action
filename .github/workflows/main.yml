@@ -1,6 +1,6 @@
 name: Push File
 
-on: push
+on: [pull_request]
 
 env:
     sha: $GITHUB_SHA
