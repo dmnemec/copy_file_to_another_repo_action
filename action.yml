@@ -12,10 +12,12 @@ inputs:
     required: false
   user_email:
     description: 'Email for the git commit'
-    required: true
+    default: ${{ github.actor }}@users.noreply.github.com
+    required: false
   user_name:
     description: 'GitHub username for the commit'
-    required: true
+    default: ${{ github.actor }}
+    required: false
   destination_branch:
     description: 'branch to push file to, defaults to main'
     required: false
