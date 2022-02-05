@@ -9,7 +9,7 @@ then
   return 1
 fi
 
-if [ -z "$INPUT_GIT_SERVER"]
+if [ -z "$INPUT_GIT_SERVER" ]
 then
   INPUT_GIT_SERVER="github.com"
 fi
