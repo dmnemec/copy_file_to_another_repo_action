@@ -35,6 +35,9 @@ else
   DEST_COPY="$CLONE_DIR/$INPUT_DESTINATION_FOLDER"
 fi
 
+echo "Making sure the destination file does not exist or folder is empty."
+rm -rf "$DEST_COPY/$INPUT_SOURCE_FILE"
+
 echo "Copying contents to git repo"
 mkdir -p $CLONE_DIR/$INPUT_DESTINATION_FOLDER
 if [ -z "$INPUT_USE_RSYNC" ]
