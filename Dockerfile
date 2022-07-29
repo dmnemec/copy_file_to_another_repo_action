@@ -1,4 +1,4 @@
-FROM ghcr.io/pintu-crypto/alpine:3.15
+FROM mirror.gcr.io/library/alpine:3.15
 
 RUN apk update && \
     apk upgrade && \
