@@ -31,6 +31,9 @@ inputs:
   use_rsync:
     description: 'Copy files/directories using rsync instead of cp. Experimental feature, please know your use case'
     required: false
+  exclude_files:
+    description: 'Files to exclude if using rsync. Uses the same syntax as the rsync command.'
+    required: false
   git_server:
     description: 'Git server host, default github.com'
     required: false
@@ -49,6 +52,7 @@ runs:
     - ${{ inputs.git-server }}
     - ${{ inputs.rename }}
     - ${{ inputs.use-rsync }}
+    - ${{ inputs.exclude-files }}
 branding:
   icon: 'git-commit'
   color: 'green'
