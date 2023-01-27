@@ -31,6 +31,9 @@ inputs:
   use_rsync:
     description: 'Copy files/directories using rsync instead of cp. Experimental feature, please know your use case'
     required: false
+  delete_existing:
+    description: 'Delete all files in `destination_folder` before copying'
+    required: false
   git_server:
     description: 'Git server host, default github.com'
     required: false
