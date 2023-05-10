@@ -26,9 +26,9 @@ git clone --single-branch --branch $INPUT_DESTINATION_BRANCH "https://x-access-t
 
 if [ ! -z "$INPUT_RENAME" ]; then
   echo "Setting new filename: ${INPUT_RENAME}"
-  DEST_COPY="$CLONE_DIR/$INPUT_DESTINATION_FOLDER/$INPUT_RENAME"
+  DEST_COPY="$CLONE_DIR/$INPUT_RENAME"
 else
-  DEST_COPY="$CLONE_DIR/$INPUT_DESTINATION_FOLDER"
+  DEST_COPY="$CLONE_DIR"
 fi
 
 echo "Copying contents to git repo"
