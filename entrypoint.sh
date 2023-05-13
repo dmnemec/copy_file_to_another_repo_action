@@ -32,7 +32,7 @@ else
 fi
 
 echo "Copying contents to git repo"
-if [ ! -z "$INPUT_DELETE_EXISTING" ]; then
+if [ "$INPUT_DELETE_EXISTING" = "true" ]; then
   echo "Deleting existing files"
   rm -rf $CLONE_DIR/$INPUT_DESTINATION_FOLDER
 fi
