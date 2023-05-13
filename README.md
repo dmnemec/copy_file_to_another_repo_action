@@ -11,7 +11,7 @@ This GitHub Action copies a file from the current repository to a location in an
         runs-on: ubuntu-latest
         steps:
         - name: Checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
 
         - name: Pushes test file
           uses: dmnemec/copy_file_to_another_repo_action@main
