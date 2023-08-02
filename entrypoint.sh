@@ -28,7 +28,7 @@ git config --global user.name "$INPUT_USER_NAME"
 
 git config --global --add safe.directory $CLONE_DIR
 
-git clone --single-branch --branch $INPUT_DESTINATION_BRANCH "https://x-access-token:$API_TOKEN_GITHUB@$INPUT_GIT_SERVER/$INPUT_DESTINATION_REPO.git" "$CLONE_DIR"
+git clone --depth=1 --single-branch --branch $INPUT_DESTINATION_BRANCH "https://x-access-token:$API_TOKEN_GITHUB@$INPUT_GIT_SERVER/$INPUT_DESTINATION_REPO.git" "$CLONE_DIR"
 
 if [ ! -z "$INPUT_RENAME" ]
 then
