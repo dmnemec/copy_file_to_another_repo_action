@@ -35,6 +35,10 @@ inputs:
     description: 'Git server host, default github.com'
     required: false
     default: github.com
+  push_retries:
+    description: 'How many times the git push should be retried'
+    required: false
+    default: 0
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -49,6 +53,7 @@ runs:
     - ${{ inputs.git-server }}
     - ${{ inputs.rename }}
     - ${{ inputs.use-rsync }}
+    - ${{ inputs.push-retries }}
 branding:
   icon: 'git-commit'
   color: 'green'
