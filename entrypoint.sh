@@ -19,7 +19,7 @@ then
   INPUT_DESTINATION_BRANCH=main
 fi
 OUTPUT_BRANCH="$INPUT_DESTINATION_BRANCH"
-
+PUSH_RETRIES=${INPUT_PUSH_RETRIES:-0}
 CLONE_DIR=$(mktemp -d)
 
 echo "Cloning destination git repository"
@@ -68,6 +68,17 @@ if git status | grep -q "Changes to be committed"
 then
   git commit --message "$INPUT_COMMIT_MESSAGE"
   echo "Pushing git commit"
+  counter=1
+  while ! git push -u origin HEAD:"$OUTPUT_BRANCH"
+  do
+  	if [[ $counter -gt $PUSH_RETRIES ]]; then
+  		>&2 echo "failed after $retries retries" 
+  		exit 1
+  	fi
+  	echo "Retrying attempt $counter"
+  	counter=$[$counter + 1]
+  done
+  
   git push -u origin HEAD:"$OUTPUT_BRANCH"
 else
   echo "No changes detected"
