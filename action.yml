@@ -1,4 +1,4 @@
-name: 'Push a file to another repository'
+name: 'Push a file to another repository (forked by Quollio)'
 description: 'Used for pushing a copy of a file to another repository'
 inputs:
   source_file:
