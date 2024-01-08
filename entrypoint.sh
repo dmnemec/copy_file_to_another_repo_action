@@ -26,6 +26,7 @@ echo "Cloning destination git repository"
 git config --global user.email "$INPUT_USER_EMAIL"
 git config --global user.name "$INPUT_USER_NAME"
 git clone --single-branch --branch $INPUT_DESTINATION_BRANCH "https://x-access-token:$API_TOKEN_GITHUB@$INPUT_GIT_SERVER/$INPUT_DESTINATION_REPO.git" "$CLONE_DIR"
+git config --global --add safe.directory $CLONE_DIR
 
 if [ ! -z "$INPUT_RENAME" ]
 then
@@ -42,10 +43,11 @@ then
   cp -R "$INPUT_SOURCE_FILE" "$DEST_COPY"
 else
   echo "rsync mode detected"
-  if [ -z "$INPUT_EXCLUDE_FILES" ]
-    rsync -avrh --exclude "$INPUT_EXCLUDE_FILES" "$INPUT_SOURCE_FILE" "$DEST_COPY"
-  else
+  if [ -z "$INPUT_RSYNC_OPTION" ]
+  then
     rsync -avrh "$INPUT_SOURCE_FILE" "$DEST_COPY"
+  else
+    rsync -avrh $INPUT_RSYNC_OPTION "$INPUT_SOURCE_FILE" "$DEST_COPY"
   fi
 fi
 
