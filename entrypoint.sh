@@ -45,9 +45,9 @@ else
   echo "rsync mode detected"
   if [ -z "$INPUT_RSYNC_OPTION" ]
   then
-    rsync -avrh "$INPUT_SOURCE_FILE" "$DEST_COPY"
+    rsync -avrh --delete "$INPUT_SOURCE_FILE" "$DEST_COPY"
   else
-    rsync -avrh $INPUT_RSYNC_OPTION "$INPUT_SOURCE_FILE" "$DEST_COPY"
+    rsync -avrh --delete $INPUT_RSYNC_OPTION "$INPUT_SOURCE_FILE" "$DEST_COPY"
   fi
 fi
 
